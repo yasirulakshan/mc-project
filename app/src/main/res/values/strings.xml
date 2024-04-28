@@ -7,4 +7,5 @@
     <string name="no_data_to_display">No data to display</string>
     <string name="message">Message</string>
     <string name="send">SEND</string>
+    <string name="reading_message">Reading Message ...</string>
 </resources>

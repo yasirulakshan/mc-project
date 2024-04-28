@@ -3,11 +3,11 @@ plugins {
 }
 
 android {
-    namespace 'com.example.vlc_project'
+    namespace 'com.example.flash_com'
     compileSdk 34
 
     defaultConfig {
-        applicationId "com.example.vlc_project"
+        applicationId "com.example.flash_com"
         minSdk 21
         targetSdk 34
         versionCode 1

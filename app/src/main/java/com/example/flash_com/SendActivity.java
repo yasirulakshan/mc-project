@@ -1,4 +1,4 @@
-package com.example.vlc_project;
+package com.example.flash_com;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -26,9 +26,8 @@ public class SendActivity extends AppCompatActivity {
     int counter = 0;
     private CameraManager cameraManager;
     private String cameraId;
-//    private static final long BIT_DURATION = 300;
-    private static final long BIT_DURATION_1 = 50;
-    private static final long BIT_DURATION_0 = 250;
+    private static final int BIT_DURATION_1 = 50;
+    private static final int BIT_DURATION_0 = 250;
     int data_length =0;
 
     @Override
@@ -36,27 +35,26 @@ public class SendActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_send);
 
-        textInputEditText = (TextInputEditText) findViewById(R.id.textInputEditText);
-        sendButton = (Button) findViewById(R.id.button);
+        textInputEditText = (TextInputEditText) findViewById(R.id.textInputField);
+        sendButton = (Button) findViewById(R.id.send_message_button);
         textView = (TextView) findViewById(R.id.sendPreview);
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
         progressBar.setVisibility(View.INVISIBLE);
 
-
-        textView.setText("Enter Message to Send !");
+        textView.setText("Type a message to send");
         sendButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                textView.setText("Sending data....");
+                textView.setText("Sending message....");
                 progressBar.setVisibility(View.VISIBLE);
                 String data = String.valueOf(textInputEditText.getText());
-//                sendAsciiData(data);
                 new SendDataAsyncTask().execute(data);
             }
         });
     }
 
     private class SendDataAsyncTask extends AsyncTask<String, Integer, Void> {
+
         @Override
         protected Void doInBackground(String... params) {
             String data = params[0];
@@ -74,7 +72,7 @@ public class SendActivity extends AppCompatActivity {
             for (int i = 0; i < data.length(); i++) {
                 char c = data.charAt(i);
                 sendAsciiData(Character.toString(c));
-                publishProgress((i+1)*100/data.length());
+                publishProgress((i + 1) * 100 / data.length());
             }
             turnFlashlightOff();
             return null;
@@ -83,7 +81,6 @@ public class SendActivity extends AppCompatActivity {
         @Override
         protected void onProgressUpdate(Integer... values) {
             super.onProgressUpdate(values);
-            // Update progress bar here
             progressBar.setProgress(values[0]);
         }
 
@@ -94,12 +91,7 @@ public class SendActivity extends AppCompatActivity {
             progressBar.setVisibility(View.INVISIBLE);
             progressBar.setProgress(0);
 
-            textView.postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    textView.setText("Enter Message to Send");
-                }
-            }, 5000);
+            textView.postDelayed(() -> textView.setText("Enter Message to Send"), 5000);
         }
 
     }
@@ -114,10 +106,10 @@ public class SendActivity extends AppCompatActivity {
             for (int i = 0; i < data.length(); i++) {
                 char c = data.charAt(i);
                 String binaryString = Integer.toBinaryString(c); // convert the character to binary string
-                if(binaryString.length()<8){
-                    binaryString =String.join("", Collections.nCopies((8-binaryString.length()), "0"))+binaryString;
+                if(binaryString.length() < 8){
+                    binaryString = String.join("", Collections
+                            .nCopies(8-binaryString.length(), "0")) + binaryString;
                 }
-                System.out.println(String.format("%c : %s",c,binaryString));
                 for (int j = 0; j < binaryString.length(); j++) {
                     if (binaryString.charAt(j) == '1') {
                         turnFlashlightOn();

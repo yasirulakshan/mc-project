@@ -1,4 +1,4 @@
-package com.example.vlc_project;
+package com.example.flash_com;
 
 import android.content.Context;
 
