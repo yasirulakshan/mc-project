@@ -6,29 +6,31 @@
     android:layout_height="match_parent"
     tools:context=".SendActivity">
 
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="593dp"
+        android:layout_height="936dp"
+        app:srcCompat="@drawable/background"
+        tools:layout_editor_absoluteX="-103dp"
+        tools:layout_editor_absoluteY="-66dp" />
+
     <com.google.android.material.textfield.TextInputLayout
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:id="@+id/textInputLayout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="624dp"
         android:layout_marginEnd="32dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:hint="Message"
-        app:helperText="Enter message to send."
-        app:counterMaxLength="100"
+        android:hint="@string/message"
         app:counterEnabled="true"
-        >
+        app:counterMaxLength="100"
+        app:helperText="Enter message to send."
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/textInputEditText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:maxLength="100"
-             />
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
@@ -38,7 +40,7 @@
         android:layout_marginStart="285dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="32dp"
-        android:text="SEND"
+        android:text="@string/send"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout" />
@@ -47,26 +49,28 @@
         android:id="@+id/sendPreview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="210dp"
         android:layout_marginBottom="388dp"
-        android:text="TextView"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <ProgressBar
         android:id="@+id/progressBar"
         style="@style/Widget.AppCompat.ProgressBar.Horizontal"
         android:layout_width="257dp"
         android:layout_height="15dp"
-        android:layout_marginTop="29dp"
-        android:layout_marginBottom="324dp"
+        android:layout_marginBottom="700dp"
+        android:progressTint="#6200ee"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sendPreview"
-        app:layout_constraintVertical_bias="1.0"
-        android:progressTint="#6200ee"/>
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/textInputEditText"
+        android:layout_width="344dp"
+        android:layout_height="51dp"
+        android:maxLength="100"
+        tools:layout_editor_absoluteX="32dp"
+        tools:layout_editor_absoluteY="558dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

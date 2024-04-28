@@ -1,6 +1,10 @@
 <resources>
     <string name="app_name">FlashCom</string>
-    <string name="send_data">Send Data</string>
-    <string name="recieve_data">Recieve Data</string>
-    <string name="receive_data">Receive Data</string>
+    <string name="send_message">Send Message</string>
+    <string name="receive_message">Receive Message</string>
+    <string name="previous_message">Previous Message</string>
+    <string name="scan">Scan</string>
+    <string name="no_data_to_display">No data to display</string>
+    <string name="message">Message</string>
+    <string name="send">SEND</string>
 </resources>

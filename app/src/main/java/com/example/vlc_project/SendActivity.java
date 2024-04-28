@@ -8,7 +8,6 @@ import android.hardware.camera2.CameraManager;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;

@@ -28,7 +28,8 @@ public class ReceiveActivity extends Activity {
         textView1 = findViewById(R.id.textView1);
         try{
             String data = getIntent().getStringExtra("key");
-            if(data.length() > 0){
+            assert data != null;
+            if(!data.isEmpty()){
                 Log.d("MAINX", data);
                 textView1.setText(data);
             }
