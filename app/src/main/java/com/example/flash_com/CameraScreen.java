@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 
 import org.opencv.android.CameraActivity;
 import org.opencv.android.CameraBridgeViewBase;
+import org.opencv.android.OpenCVLoader;
 import org.opencv.core.CvType;
 import org.opencv.core.Mat;
 import org.opencv.core.MatOfPoint;
@@ -15,6 +16,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -26,13 +28,18 @@ public class CameraScreen extends CameraActivity {
     CameraBridgeViewBase cameraBridgeViewBase;
     TextView resultTextView;
 
-    final int MAX_COUNTER_THRESHOLD = 20000;
+    final long MAX_COUNTER_THRESHOLD = 20000;
 
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_camera);
+
+        if(OpenCVLoader.initDebug()) Log.d("OpenCv Loaded", "Successfully loaded open CV");
+        else Log.d("Error", "Error occurred while loading openCV");
+        Log.d("Success", "Loaded the OpenCv");
+
         getCameraPermission();
 
         cameraBridgeViewBase = findViewById(R.id.cameraView);
